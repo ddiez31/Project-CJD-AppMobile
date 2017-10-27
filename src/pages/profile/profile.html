@@ -1,0 +1,92 @@
+<ion-header>
+  <myHeader></myHeader>
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="{{userAvatar}}" *ngIf="user.avatar">
+        <ion-icon id="iconAvatar" name="contact" *ngIf="!user.avatar"></ion-icon>
+      </ion-avatar>
+      <h2>
+        <strong>Prénom: {{user.first_name}}</strong>
+      </h2>
+      <h2>
+        <strong>Nom: {{user.last_name}}</strong>
+      </h2>
+      <h3>Métier: {{user.company_job}}</h3>
+      <h3>Société: {{user.company_name}}</h3>
+      <h4>Tél.: {{user.phone}}</h4>
+      <h4>Mail: {{user.email}}</h4>
+    </ion-item>
+    <ion-card-content>
+      <p>Adresse: {{user.company_address}}</p>
+      <p>Description: {{user.description}}</p>
+      <h6>Effectif: {{user.num_employee}}</h6>
+      <h6>C.A.: {{user.company_business_revenue}}€</h6>
+      <p>Région CJD: </p>
+      <p>Section CJD: </p>
+      <h3>Equipe bureau: </h3>
+      <!-- <h3>Rôle au CJD: {{user.Type_user.type}}</h3> -->
+      <h4>
+        <em>Rôle extérieur: {{user.other_function}}</em>
+      </h4>
+      <h5>
+        <!-- <em>Contribution: {{user.Contribution.title}} / {{user.Contribution.price}}€ / {{user.Contribution.status}}</em> -->
+      </h5>
+      <h6>
+        <em>Points: {{user.points}}</em>
+      </h6>
+      <h6>
+        <em>Loisirs: {{user.hobby}}</em>
+      </h6>
+    </ion-card-content>
+  </ion-card>
+  <ion-row>
+    <ion-col text-center>
+      <button small ion-button icon-start (click)="updateUser(user)">
+        <ion-icon name="create"></ion-icon>
+        Modifier mes informations
+      </button>
+    </ion-col>
+  </ion-row>
+  <ion-list [hidden]="hidden">
+
+    <ion-item>
+      <ion-label color="cjd_blue">Avatar: </ion-label>
+      <ion-input type="file" name="avatar"></ion-input>
+      <button ion-fab mini item-right icon-only color="cjd_darkblue" (click)="uploadFile()">
+        <ion-icon name="cloud-upload"></ion-icon>
+      </button>
+    </ion-item>
+    <ion-item>
+      <h4>Image Preview</h4>
+      <img src="{{imageFileName}}" *ngIf="imageFileName" alt="File" width="300" />
+    </ion-item>
+
+
+    <ion-item>
+      <ion-label color="cjd_blue">Tél: </ion-label>
+      <ion-input type="tel" placeholder="Tel Input"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="cjd_blue">Mail: </ion-label>
+      <ion-input type="email" placeholder="Mail Input"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="cjd_blue">C.A.: </ion-label>
+      <ion-input type="number" placeholder="C.A. Input"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="cjd_blue">Fonctions hors CJD: </ion-label>
+      <ion-input type="text" placeholder="Text Input"></ion-input>
+      <button ion-fab mini item-left icon-only color="cjd_darkblue" (click)="add()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-item>
+    <div padding text-center>
+      <button ion-button round outline type="submit" (click)="register(user)">Enregistrer</button>
+    </div>
+  </ion-list>
+</ion-content>

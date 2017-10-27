@@ -1,0 +1,31 @@
+page-home {
+    ion-content {
+        background: url('../assets/images/home_cjd.png') no-repeat center;
+        background-position: bottom;
+        background-size: 100vw 70vh;
+    }
+    ion-grid {
+        height: 80%;
+    }
+    .scroll-content {
+        overflow: hidden;
+    }
+    .button {
+        height: 100%;
+        opacity: 0.85;
+    }
+    ion-col {
+        height: 16vh;
+    }
+    button>span {
+        font-size: 1.2em;
+        font-weight: bold;
+        text-transform: uppercase;
+        line-height: 2em;
+        text-align: center;
+        color: black;
+    }
+    .homeButton {
+        display: none;
+    }
+}

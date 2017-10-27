@@ -1,0 +1,12 @@
+page-welcome {
+    .grid,
+    .row {
+        height: 100%;
+    }
+    .invalid {
+        color: $invalid;
+    }
+    .input.ng-valid {
+        color: $cjd_green;
+    }
+}

@@ -1,0 +1,68 @@
+<ion-header>
+  <myHeader></myHeader>
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+    <ion-item>
+      <img src="{{event.image}}">
+    </ion-item>
+    <ion-card-content>
+      <h1>{{ event.name }}</h1>
+      <h2>{{ event.actorName }}</h2>
+      <h4>{{ event.description }}</h4>
+      <p>{{ event.date }} à {{ event.time }}</p>
+      <p>{{ event.address }}</p>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-item text-center>
+      <ion-icon name="locate" item-start></ion-icon>
+      <strong>C'est où ?</strong>
+    </ion-item>
+    <hr>
+    <ion-card-content class="map">
+      <ion-item>
+        <div id="map"></div>
+        <!-- <img src="https://raw.githubusercontent.com/xuopled/react-google-map/master/screenshots/react-google-map-exemple.png"> -->
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-item text-center>
+      <ion-icon name="people" item-start></ion-icon>
+      <strong>Qui y va ?</strong>
+      <ion-badge item-end>{{ users.length }}</ion-badge>
+    </ion-item>
+    <hr>
+    <ion-card-content>
+      <ion-item>
+        <ion-avatar item-start *ngFor="let user of users">
+          <img src="{{ user.image }}" title="{{user.firstName}} {{user.lastName}}">
+        </ion-avatar>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+  <ion-grid>
+    <ion-row>
+      <ion-col text-center>
+        <button small ion-button icon-start (click)="viewCalendar(event)">
+          <ion-icon name="calendar"></ion-icon>
+          Vérifier mon agenda
+        </button>
+      </ion-col>
+      <ion-col text-center [hidden]="createEvent">
+        <button small ion-button icon-start (click)="registerEvent(event)">
+          <ion-icon name="calendar"></ion-icon>
+          Ajouter à mon agenda
+      </button>
+      </ion-col>
+      <ion-col text-center [hidden]="removeEvent">
+        <button small ion-button icon-start (click)="deleteEvent(event)">
+          <ion-icon name="calendar"></ion-icon>
+          Retirer de mon agenda
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

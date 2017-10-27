@@ -1,0 +1,24 @@
+<ion-header>
+  <myHeader></myHeader>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-12>
+        <h5 text-center><strong>Bienvenue dans votre appli préférée! ;-)</strong></h5>
+        <hr>
+        <p>Nombre d'évènements où je participe: nbr</p>
+        <p>Mes points: nbr</p>
+      </ion-col>
+      <ion-col col-12><button ion-button block large icon-start color="cjd_blue" (click)="setCategory('mondayMail')"><ion-icon name="information-circle"></ion-icon>Mail du Lundi</button>
+      </ion-col>
+      <ion-col col-12><button ion-button block large icon-start color="cjd_orange" (click)="setCategory('events')"><ion-icon name="calendar"></ion-icon>Evènements</button>
+      </ion-col>
+      <ion-col col-12><button ion-button block large icon-start color="cjd_green" (click)="setCategory('trombinoscope')"><ion-icon name="people"></ion-icon>Trombinoscope</button>
+      </ion-col>
+      <ion-col col-12><button ion-button block large icon-start color="cjd_pink" (click)="setCategory('profile')"><ion-icon name="ionitron"></ion-icon>Profil</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,53 @@
+<ion-header>
+  <myHeader></myHeader>
+</ion-header>
+
+<ion-content padding>
+  <ion-list ion-fixed>
+    <ion-item>
+      <ion-label justify-content-between>Région</ion-label>
+      <ion-select [(ngModel)]="region" interface="popover" (ionChange)="regionSelect($event)">
+        <ion-option selected value="All">Toutes</ion-option>
+        <ion-option *ngFor="let region of regions" value="{{ region.name }}">{{ region.name }}</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item [hidden]="sectionCJD">
+      <ion-label justify-content-between>Section</ion-label>
+      <ion-select [(ngModel)]="section" interface="popover" (ionChange)="sectionSelect($event)">
+        <ion-option selected value="All">Toutes</ion-option>
+        <ion-option *ngFor="let section of sections" value="{{ section.name }}">{{section.name}}</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-searchbar placeholder="Rechercher" showCancelButton="shouldShowCancel" (ionInput)="getUsers($event)"></ion-searchbar>
+  </ion-list>
+  <ion-list padding-top>
+    <ion-item-sliding #slidingItem *ngFor="let user of users; let i = index">
+      <ion-item #item (click)="openOption(slidingItem, item)">
+        <ion-avatar item-start>
+          <img src="{{usersAvatar[i]}}" *ngIf="user.avatar">
+          <ion-icon id="iconAvatar" name="contact" *ngIf="!user.avatar"></ion-icon>
+        </ion-avatar>
+        {{ user.first_name }} {{ user.last_name }}
+        <ion-icon item-end name="arrow-forward"></ion-icon>
+      </ion-item>
+      <ion-item-options side="right" (click)="closeOption()">
+        <button class="actionButton" ion-button small color="cjd_blue" (click)="userDetails(user, usersAvatar[i])">
+          <ion-icon name="text"></ion-icon>
+          Infos
+        </button>
+        <button class="actionButton" ion-button small color="cjd_green" (click)="callNbr(user.phone)">
+          <ion-icon name="call"></ion-icon>
+          Appel
+        </button>
+        <button class="actionButton" ion-button small color="cjd_pink" (click)="sendMail(user.email)">
+          <ion-icon name="at"></ion-icon>
+          Email
+        </button>
+        <button class="actionButton" ion-button small color="cjd_orange" (click)="sendSmsNbr(user.phone)">
+          <ion-icon name="mail"></ion-icon>
+          SMS
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>

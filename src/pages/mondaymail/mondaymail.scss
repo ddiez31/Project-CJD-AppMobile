@@ -1,0 +1,9 @@
+page-mondaymail {
+    .scroll-content {
+        background-color: $cjd_blue;
+    }
+    ion-item {
+        flex-wrap: wrap;
+        justify-content: flex-start !important;
+    }
+}

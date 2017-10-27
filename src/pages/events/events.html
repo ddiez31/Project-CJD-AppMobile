@@ -1,0 +1,43 @@
+<ion-header>
+  <myHeader></myHeader>
+</ion-header>
+
+<ion-content padding>
+  <ion-card *ngFor="let event of events">
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="{{ event.image }}">
+      </ion-avatar>
+      <h2>{{ event.name }}</h2>
+      <h4>{{ event.actorName }}</h4>
+    </ion-item>
+    <ion-card-content>
+      <h5>{{ event.description }}</h5>
+      <p>{{ event.date }} à {{ event.time }}</p>
+      <p>{{ event.address }}</p>
+
+    </ion-card-content>
+    <ion-row>
+      <ion-col>
+        <button ion-button icon-left clear small>
+          <ion-icon name="thumbs-up"></ion-icon>
+          <div>Présent</div>
+        </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button icon-left clear small>
+          <ion-icon name="thumbs-down"></ion-icon>
+            <div>Absent</div>
+        </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button icon-left clear small (click)="eventDetails(event)">              
+          <ion-icon name="locate"></ion-icon>
+          <ion-note>
+            <div>Infos</div>
+          </ion-note>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+</ion-content>

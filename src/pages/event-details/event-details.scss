@@ -1,0 +1,15 @@
+page-event-details {
+    .scroll-content {
+        background-color: $cjd_orange;
+    }
+    ion-item {
+        flex-wrap: wrap;
+        justify-content: flex-start !important;
+    }
+    #map {
+        height: 50vh;
+    }
+    .map {
+        padding: 0;
+    }
+}

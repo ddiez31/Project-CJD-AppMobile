@@ -1,0 +1,18 @@
+page-trombinoscope {
+    ion-label {
+        display: flex;
+    }
+    .actionButton {
+        width: 15%;
+    }
+    [ion-fixed] {
+        position: sticky;
+    }
+    .scroll-content {
+        top: 20vh;
+        background-color: $cjd_green;
+    }
+    #iconAvatar {
+        font-size: 2.2em;
+    }
+}

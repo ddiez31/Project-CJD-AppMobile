@@ -1,0 +1,29 @@
+<ion-content padding>
+  <ion-grid>
+    <ion-row text-center align-items-center justify-content-center>
+      <img src="assets/images/logo_cjd.png">
+      <ion-list inset>
+        <form [formGroup]="loginForm" (ngSubmit)="login()">
+          <ion-item>
+            <ion-label floating>E-Mail</ion-label>
+            <ion-input type="email" formControlName="email" clearInput [class.invalid]="!loginForm.controls.email.valid && (loginForm.controls.email.dirty || submitAttempt)"></ion-input>
+          </ion-item>
+          <!-- <ion-item *ngIf="!loginForm.controls.email.valid  && (loginForm.controls.email.dirty || submitAttempt)">
+<p>Adresse mail non valide</p>
+</ion-item> -->
+          <ion-item>
+            <ion-label floating>Mot de Passe</ion-label>
+            <ion-input type="password" formControlName="password" clearInput [class.invalid]="!loginForm.controls.password.valid && (loginForm.controls.password.dirty || submitAttempt)"></ion-input>
+          </ion-item>
+          <!-- <ion-item *ngIf="!loginForm.controls.password.valid  && (loginForm.controls.password.dirty || submitAttempt)">
+<p>Mot de passe de 6 caractères</p>
+</ion-item> -->
+          <div text-center padding padding-top>
+            <button ion-button round outline large color="primary" type="submit" [disabled]="!loginForm.valid">Connexion</button>
+            <!-- <a href="#">Mot de passe oublié ?</a> -->
+          </div>
+        </form>
+      </ion-list>
+    </ion-row>
+  </ion-grid>
+</ion-content>
