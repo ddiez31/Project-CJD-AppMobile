@@ -10,11 +10,12 @@ import {SMS} from '@ionic-native/sms';
 import {EmailComposer} from '@ionic-native/email-composer';
 
 import {UserDetailsPage} from '../user-details/user-details';
+import {IpAddress} from '../../data/ipaddress.db';
 
 @Component({selector: 'page-trombinoscope', templateUrl: 'trombinoscope.html'})
 
 export class TrombinoscopePage {
-  private ipAddress = '192.168.31.144';
+  private ipAddress = IpAddress[0];
 
   user = {};
   users = [];

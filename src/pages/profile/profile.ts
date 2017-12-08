@@ -3,11 +3,13 @@ import {NavController, LoadingController, ToastController} from 'ionic-angular';
 import {FileTransfer, FileUploadOptions, FileTransferObject} from '@ionic-native/file-transfer';
 
 import {ApiProvider} from '../../providers/api/api';
+import {IpAddress} from '../../data/ipaddress.db';
+
 import {JwtHelper} from 'angular2-jwt';
 
 @Component({selector: 'page-profile', templateUrl: 'profile.html'})
 export class ProfilePage {
-  private ipAddress = '192.168.31.144';
+  private ipAddress = IpAddress[0];
 
   private URL = 'http://' + this.ipAddress + ':3000/api/upload';
   private urlPublic = 'http://' + this.ipAddress + ':3000/uploads/';

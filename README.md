@@ -17,7 +17,7 @@ $ npm install
 ```
 
 ### Parameter the local IP address
-Modifiy `profile.ts` and `trombinoscope.ts` files and change `private ipAddress` with your local IP Address.
+Modifiy `data/ipaddress.db.ts` file and change value of `IpAddress` with your local IP Address.
 
 ### Run the project into `local path`:
 ##### - view on browser
